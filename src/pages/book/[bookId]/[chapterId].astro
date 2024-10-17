@@ -1,0 +1,29 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Sidebar from '../../../components/Sidebar.astro';
+import { MangaService } from '../../../services/mangas.service';
+
+const { bookId, chapterId } = Astro.params;
+
+if (!bookId || !chapterId) return;
+const response = await MangaService.getChapterById(bookId, chapterId);
+---
+
+<Layout title='Chapters'>
+  <Sidebar
+    bookId={bookId}
+    chapterId={chapterId}
+    chapterList={response.chapterListIds}
+  >
+    <div class='flex flex-col justify-center items-center gap-10 mt-10 ml-20'>
+      <p class='text-4xl'>{response.currentChapter}</p>
+      <article class='min-h-screen'>
+        {
+          response.images.map(({ image, title }: any) => (
+            <img class='object-cover w-full' src={image} alt={title} />
+          ))
+        }
+      </article>
+    </div>
+  </Sidebar>
+</Layout>

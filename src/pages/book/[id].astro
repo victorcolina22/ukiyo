@@ -1,0 +1,64 @@
+---
+import Container from '../../components/Container.astro';
+import Layout from '../../layouts/Layout.astro';
+import { MangaService } from '../../services/mangas.service';
+
+const { id } = Astro.params;
+
+if (!id) return;
+const manga = await MangaService.getMangaById(id);
+---
+
+<Layout title='Manga'>
+  <Container>
+    <a class='text-2xl' href='/'>Go back</a>
+    <section class='mt-10 flex gap-5 items-start'>
+      <img
+        class='rounded-xl'
+        src={manga.imageUrl}
+        alt=''
+        transition:name={`image-thumb-${id}`}
+      />
+
+      <div class='flex flex-col gap-5'>
+        <h2 class='text-4xl'>{manga.name}</h2>
+        <p>
+          <span class='font-bold'>Author: </span>
+          <span>{manga.author}</span>
+        </p>
+        <p class='font-bold'>Views: {manga.view}</p>
+
+        <div class='flex items-center gap-2 flex-wrap'>
+          {
+            manga.genres.map((genre: any) => (
+              <div class='border border-[#B6C4B6] rounded-md px-2'>
+                <p class='text-xs text-gray-500'>{genre}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <p>
+          <span class='font-bold'>Status: </span>
+          {manga.status}
+        </p>
+      </div>
+    </section>
+
+    <section class='mt-10'>
+      <h3 class='text-2xl'>Chapter list</h3>
+      <div class='flex flex-col gap-2 mt-5'>
+        {
+          manga.chapterList.map((chapter: any) => (
+            <a
+              class='py-3 px-2 bg-custom-black rounded-lg'
+              href={`/book/${id}/${chapter.id}`}
+            >
+              {chapter.name}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </Container>
+</Layout>
