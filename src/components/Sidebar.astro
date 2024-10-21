@@ -13,9 +13,12 @@ const nextChapter = chapterList[chapterIndex - 1]?.id;
 
 <aside class='flex justify-center'>
   <div
-    class='flex flex-col items-center bg-custom-black h-screen pt-3 px-5 fixed left-0'
+    class='lg:flex flex-col items-center bg-custom-black h-screen pt-3 px-5 fixed left-0 hidden'
   >
-    <a class='text-2xl' href={`/book/${bookId}`}>Go back</a>
+    <a class='flex items-center gap-2 text-2xl' href={`/book/${bookId}`}>
+      <ArrowLeftFilled class='w-[30px]' />
+      <span>Go back</span>
+    </a>
     <div class='flex items-center gap-3 mt-5'>
       {
         prevChapter && (

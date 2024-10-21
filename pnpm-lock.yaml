@@ -17,6 +17,9 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.2
         version: 5.1.2(astro@4.16.5(rollup@4.24.0)(typescript@5.3.3))(tailwindcss@3.4.14)
+      '@nanostores/preact':
+        specifier: ^0.5.2
+        version: 0.5.2(nanostores@0.11.3)(preact@10.19.3)
       astro:
         specifier: ^4.16.5
         version: 4.16.5(rollup@4.24.0)(typescript@5.3.3)
@@ -26,6 +29,9 @@ importers:
       mangadex-full-api:
         specifier: 6.0.0-beta.0
         version: 6.0.0-beta.0
+      nanostores:
+        specifier: ^0.11.3
+        version: 0.11.3
       preact:
         specifier: ^10.19.3
         version: 10.19.3
@@ -589,6 +595,13 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@nanostores/preact@0.5.2':
+    resolution: {integrity: sha512-DZ5G0UuHTJ8NNS8I3Jd6f4RCcWIl4siYD+vaV6jQf0T6xJ3QqTSkJkYNQTZK7O+7NC/mzaLkomyLQqD+w1E0Tg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0
+      preact: '>=10.0.0'
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1701,6 +1714,10 @@ packages:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+
+  nanostores@0.11.3:
+    resolution: {integrity: sha512-TUes3xKIX33re4QzdxwZ6tdbodjmn3tWXCEc1uokiEmo14sI1EaGYNs2k3bU2pyyGNmBqFGAVl6jAGWd06AVIg==}
+    engines: {node: ^18.0.0 || >=20.0.0}
 
   neotraverse@0.6.18:
     resolution: {integrity: sha512-Z4SmBUweYa09+o6pG+eASabEpP6QkQ70yHj351pQoEXIs8uHbaU2DWVmzBANKgflPa47A50PtB2+NgRpQvr7vA==}
@@ -3060,6 +3077,11 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@nanostores/preact@0.5.2(nanostores@0.11.3)(preact@10.19.3)':
+    dependencies:
+      nanostores: 0.11.3
+      preact: 10.19.3
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -4443,6 +4465,8 @@ snapshots:
       thenify-all: 1.6.0
 
   nanoid@3.3.7: {}
+
+  nanostores@0.11.3: {}
 
   neotraverse@0.6.18: {}
 

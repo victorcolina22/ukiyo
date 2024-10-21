@@ -1,3 +1,12 @@
+---
+import { SearchInput } from './SearchInput';
+
+const { pathname } = Astro.url;
+const paths = pathname.split('/').filter(Boolean);
+const pathsValidation = paths.length < 1;
+---
+
 <header class='flex items-center justify-between p-3 bg-[#25262b]'>
-  <a class='uppercase text-2xl' href='/'> ukiyo </a>
+  <a class='uppercase text-2xl' href='/'>ukiyo</a>
+  {pathsValidation && <SearchInput client:load />}
 </header>

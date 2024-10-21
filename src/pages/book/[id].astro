@@ -1,4 +1,5 @@
 ---
+import ArrowLeftFilled from '../../components/icons/ArrowLeftFilled.astro';
 import Container from '../../components/Container.astro';
 import Layout from '../../layouts/Layout.astro';
 import { MangaService } from '../../services/mangas.service';
@@ -10,8 +11,11 @@ const manga = await MangaService.getMangaById(id);
 ---
 
 <Layout title='Manga'>
-  <Container>
-    <a class='text-2xl' href='/'>Go back</a>
+  <Container class='px-5 pb-5'>
+    <a class='flex items-center gap-2 text-2xl' href='/'>
+      <ArrowLeftFilled class='w-[30px]' />
+      <span>Go back</span>
+    </a>
     <section class='mt-10 flex gap-5 items-start'>
       <img
         class='rounded-xl'
