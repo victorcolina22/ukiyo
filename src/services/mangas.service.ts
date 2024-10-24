@@ -1,10 +1,9 @@
-const URL = 'http://localhost:3000/api/mangaList';
-const BY_ID_URL = 'http://localhost:3000/api/manga';
-const SEARCH_URL = 'http://localhost:3000/api/search';
+import { URL, ENDPOINTS } from '../shared/constants';
 
 export class MangaService {
-  private static MANGA_HOOK_URL = URL;
-  private static MANGA_BY_ID_URL = BY_ID_URL;
+  private static MANGA_HOOK_URL = `${URL}${ENDPOINTS.MANGA_LIST}`;
+  private static MANGA_BY_ID_URL = `${URL}${ENDPOINTS.MANGA_BY_ID}`;
+  private static SEARCH_MANGA_URL = `${URL}${ENDPOINTS.SEARCH}`;
 
   static async getMangaList() {
     try {
@@ -38,7 +37,7 @@ export class MangaService {
   static async search(query: string) {
     if (!query) return;
     try {
-      const response = await fetch(`${SEARCH_URL}/${query}`);
+      const response = await fetch(`${this.SEARCH_MANGA_URL}/${query}`);
       return response.json();
     } catch (error) {
       throw error;

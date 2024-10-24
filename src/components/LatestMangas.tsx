@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
-import { globalState } from '../globalState';
+import { globalState } from '../shared/globalState';
 import { MangaThumb } from './MangaThumb';
 import { MangaService } from '../services/mangas.service';
-import { NO_RESULTS } from '../constants';
+import { NO_RESULTS } from '../shared/constants';
 
 export const useLatestMangas = () => {
   const $globalState: any = useStore(globalState);

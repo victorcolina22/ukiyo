@@ -2,7 +2,7 @@ import { useState, type TargetedEvent } from 'preact/compat';
 import { Spinner } from './Spinner';
 import { MangaService } from '../services/mangas.service';
 import { SearchIcon } from './icons/SearchIcon';
-import { globalState } from '../globalState';
+import { globalState } from '../shared/globalState';
 
 export function SearchInput() {
   const [mangaName, setMangaName] = useState('');
