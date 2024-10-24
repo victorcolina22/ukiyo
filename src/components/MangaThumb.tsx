@@ -6,7 +6,7 @@ export function MangaThumb({ id, title, image }: any) {
           class='min-h-[230px] w-full object-cover rounded-xl hover:scale-105 transition-transform cursor-pointer'
           src={image}
           alt={title}
-          // transition:name={`image-thumb-${id}`}
+          style={`view-transition-name: image-thumb-${id}`}
         />
       </a>
 

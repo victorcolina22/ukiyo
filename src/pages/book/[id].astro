@@ -18,7 +18,7 @@ const manga = await MangaService.getMangaById(id);
     </a>
     <section class='mt-10 flex gap-5 items-start'>
       <img
-        class='rounded-xl'
+        class='rounded-xl min-h-[325px] min-w-[225px]'
         src={manga.imageUrl}
         alt=''
         transition:name={`image-thumb-${id}`}
