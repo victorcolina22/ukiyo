@@ -4,6 +4,8 @@ import { globalState } from '../shared/globalState';
 import { MangaThumb } from './MangaThumb';
 import { MangaService } from '../services/mangas.service';
 import { NO_RESULTS } from '../shared/constants';
+import { Spinner } from './Spinner';
+import { Loading } from './Loading';
 
 export const useLatestMangas = () => {
   const $globalState: any = useStore(globalState);
@@ -31,10 +33,10 @@ export const useLatestMangas = () => {
 
 export function LatestMangas() {
   const { isLoading, mangas, $globalState } = useLatestMangas();
-  return isLoading ? (
-    // TODO: add loading animation
-    <p>loading...</p>
-  ) : (
+
+  if (isLoading) return <Loading />;
+
+  return (
     <div class='flex items-start lg:justify-start justify-center gap-x-16 gap-y-10 flex-wrap'>
       {$globalState && $globalState.mangaList.length === 0 && (
         <p>{NO_RESULTS}</p>
