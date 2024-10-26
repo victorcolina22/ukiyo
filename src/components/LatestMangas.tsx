@@ -37,7 +37,7 @@ export function LatestMangas() {
   if (isLoading) return <Loading />;
 
   return (
-    <div class='flex items-start lg:justify-start justify-center gap-x-16 gap-y-10 flex-wrap'>
+    <div className='flex items-start lg:justify-start justify-center gap-x-16 gap-y-10 flex-wrap'>
       {$globalState && $globalState.mangaList.length === 0 && (
         <p>{NO_RESULTS}</p>
       )}
