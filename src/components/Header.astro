@@ -6,7 +6,9 @@ const paths = pathname.split('/').filter(Boolean);
 const pathsValidation = paths.length < 1;
 ---
 
-<header class='flex items-center justify-between p-3 bg-[#25262b]'>
+<header
+  class='fixed left-0 top-0 right-0 flex items-center justify-between p-3 bg-[#25262b] z-40'
+>
   <a class='uppercase text-2xl' href='/'>ukiyo</a>
   {pathsValidation && <SearchInput client:load />}
 </header>
