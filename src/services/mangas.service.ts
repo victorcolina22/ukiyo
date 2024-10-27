@@ -1,3 +1,4 @@
+import type { IMangaList } from '../interfaces/mangaList';
 import { URL, ENDPOINTS } from '../shared/constants';
 
 export class MangaService {
@@ -5,9 +6,18 @@ export class MangaService {
   private static MANGA_BY_ID_URL = `${URL}${ENDPOINTS.MANGA_BY_ID}`;
   private static SEARCH_MANGA_URL = `${URL}${ENDPOINTS.SEARCH}`;
 
-  static async getMangaList() {
+  static async getMangaList(): Promise<IMangaList> {
     try {
-      const response = await fetch(this.MANGA_HOOK_URL);
+      const response = await fetch(`${this.MANGA_HOOK_URL}`);
+      return response.json();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async getMangaListByPage(page: number): Promise<IMangaList> {
+    try {
+      const response = await fetch(`${this.MANGA_HOOK_URL}?page=${page}`);
       return response.json();
     } catch (error) {
       throw error;

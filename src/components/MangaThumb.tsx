@@ -1,6 +1,6 @@
 export function MangaThumb({ id, title, image }: any) {
   return (
-    <div className='flex flex-col gap-2 w-[150px] reveal-animation'>
+    <div className='flex flex-col gap-2 w-[150px]'>
       <a href={`/book/${id}`}>
         <img
           className='min-h-[230px] w-full object-cover rounded-xl hover:scale-105 transition-transform cursor-pointer'

@@ -8,3 +8,5 @@ export const ENDPOINTS = {
 };
 
 export const NO_RESULTS = 'No results was found :(';
+
+export const PAGINATION_SIZE_DEFAULT = 5;
